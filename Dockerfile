@@ -1,5 +1,4 @@
-FROM nikolaik/python-nodejs:python3.8-nodejs14-alpine
-
+FROM nikolaik/python-nodejs:python3.8-nodejs14
 
 RUN apk add curl
 RUN curl -sSL https://get.docker.com/ | sh
