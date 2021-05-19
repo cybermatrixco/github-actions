@@ -1,4 +1,4 @@
-FROM nikolaik/python-nodejs:python3.8-nodejs12
+FROM nikolaik/python-nodejs:python3.8-nodejs14-alpine
 
 
 LABEL version="1.0.0"
@@ -11,5 +11,5 @@ LABEL "com.github.actions.description"="Wraps the Serverless Framework to enable
 LABEL "com.github.actions.icon"="zap"
 LABEL "com.github.actions.color"="red"
 
-RUN npm i -g serverless@2.1.0
+RUN npm i -g serverless@2.x
 ENTRYPOINT ["serverless"]
