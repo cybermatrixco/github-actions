@@ -1,7 +1,6 @@
-FROM nikolaik/python-nodejs:python3.8-nodejs16-slim
+FROM nikolaik/python-nodejs:python3.8-nodejs16-alpine
 
-RUN apk add curl
-RUN curl -sSL https://get.docker.com/ | sh
+RUN apk add docker
 
 LABEL version="1.0.0"
 LABEL repository="https://github.com/serverless/github-action"
