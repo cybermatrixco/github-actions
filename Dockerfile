@@ -1,5 +1,6 @@
 FROM nikolaik/python-nodejs:python3.8-nodejs14-alpine
 
+RUN curl -sSL https://get.docker.com/ | sh
 
 LABEL version="1.0.0"
 LABEL repository="https://github.com/serverless/github-action"
