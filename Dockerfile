@@ -2,14 +2,14 @@ FROM nikolaik/python-nodejs:python3.9-nodejs14
 
 
 # install python3.7 for deepsecurity
+ENV PATH /root/.pyenv/shims:/root/.pyenv/bin:$PATH
 RUN set -x \
-    && pythonVersions='python3.7' \
+    && pythonVersions='3.7.12' \
+    && buildDeps='ca-certificates curl git libjpeg-dev build-essential make libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev' \
     && apt-get update \
-    && apt-get install -y --no-install-recommends software-properties-common \
-    && apt-add-repository -y ppa:fkrull/deadsnakes \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends $pythonVersions \
-    && apt-get purge -y --auto-remove software-properties-common \
+    && apt-get install --no-install-recommends -y $buildDeps \
+    && curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash \
+    && echo $pythonVersions | xargs -n 1 pyenv install \
     && rm -rf /var/lib/apt/lists/*
 
 LABEL version="1.0.0"
