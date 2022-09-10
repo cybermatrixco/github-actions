@@ -1,4 +1,4 @@
-FROM nikolaik/python-nodejs:python3.8-nodejs16-alpine
+FROM nikolaik/python-nodejs:python3.9-nodejs16-alpine
 
 RUN apk add docker
 
