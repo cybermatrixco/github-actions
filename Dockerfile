@@ -14,5 +14,5 @@ LABEL "com.github.actions.color"="red"
 
 RUN npm cache clean --force
 RUN npm config set registry https://registry.npmjs.org/
-RUN npm i -g serverless
+RUN npm i -g serverless@3.38.0
 ENTRYPOINT ["serverless"]
