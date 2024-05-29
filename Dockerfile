@@ -1,13 +1,8 @@
-FROM nikolaik/python-nodejs:python3.9-nodejs14
+FROM nikolaik/python-nodejs:python3.11-nodejs20
 
 
-LABEL version="1.0.0"
-LABEL repository="https://github.com/imaduddinamajid/github-action"
-LABEL homepage="https://github.com/imaduddinamajid/github-action"
-LABEL maintainer="Imaduddin A Majid <imaduddinamajid@gmail.com> (https://imaduddinamajid.com)"
-
-LABEL "com.github.actions.name"="Serverless Python3.9"
-LABEL "com.github.actions.description"="Wraps the Serverless Framework to enable common Serverless commands. Built for Python3.9 Lambda function runtime"
+LABEL "com.github.actions.name"="Serverless Python3.11"
+LABEL "com.github.actions.description"="Wraps the Serverless Framework to enable common Serverless commands. Built for Python3.11 Lambda function runtime"
 LABEL "com.github.actions.icon"="zap"
 LABEL "com.github.actions.color"="red"
 
