@@ -1,5 +1,6 @@
 FROM nikolaik/python-nodejs:python3.11-nodejs20
 
+RUN apk add docker
 
 LABEL "com.github.actions.name"="Serverless Python3.11"
 LABEL "com.github.actions.description"="Wraps the Serverless Framework to enable common Serverless commands. Built for Python3.11 Lambda function runtime"
