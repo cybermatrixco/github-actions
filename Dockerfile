@@ -9,5 +9,7 @@ LABEL "com.github.actions.color"="red"
 
 RUN npm cache clean --force
 RUN npm config set registry https://registry.npmjs.org/
-RUN npm i -g serverless@^3.38.0
+# Pin exactly to 3.38.0 — later v3 releases require SERVERLESS_ACCESS_KEY
+# license activation, which breaks `npm i -g` in CI.
+RUN npm i -g serverless@3.38.0
 ENTRYPOINT ["serverless"]
