@@ -7,10 +7,11 @@ LABEL "com.github.actions.icon"="zap"
 LABEL "com.github.actions.color"="red"
 
 
-# Pin npm to 9.9.4 — npm 10.x silently exits during serverless v3 dep
-# resolution (recent regression triggered by an @smithy/@aws-sdk update).
-RUN npm install -g npm@9.9.4
-RUN npm cache clean --force
-RUN npm config set registry https://registry.npmjs.org/
-RUN npm install -g serverless@3.38.0
+# Some @smithy / @aws-sdk packages now ship with `\workspace:^`\ protocol
+# in their dependency manifest, which npm rejects with EUNSUPPORTEDPROTOCOL.
+# pnpm understands the workspace protocol so we use it for the global install.
+RUN corepack enable && corepack prepare pnpm@9.15.4 --activate
+RUN pnpm config set registry https://registry.npmjs.org/
+RUN pnpm add -g serverless@3.38.0
+ENV PATH=$PATH:/root/.local/share/pnpm
 ENTRYPOINT ["serverless"]
