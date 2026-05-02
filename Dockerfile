@@ -7,10 +7,10 @@ LABEL "com.github.actions.icon"="zap"
 LABEL "com.github.actions.color"="red"
 
 
+# Pin npm to 9.9.4 — npm 10.x silently exits during serverless v3 dep
+# resolution (recent regression triggered by an @smithy/@aws-sdk update).
+RUN npm install -g npm@9.9.4
 RUN npm cache clean --force
 RUN npm config set registry https://registry.npmjs.org/
-# Surface the actual npm error message — current CI failures only show the
-# "log file" hint without the cause.
-RUN npm i -g --foreground-scripts --loglevel=verbose serverless@3.38.0 \
-    || (echo "===== NPM DEBUG LOG =====" && cat /root/.npm/_logs/*.log; exit 1)
+RUN npm install -g serverless@3.38.0
 ENTRYPOINT ["serverless"]
