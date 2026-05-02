@@ -9,7 +9,8 @@ LABEL "com.github.actions.color"="red"
 
 RUN npm cache clean --force
 RUN npm config set registry https://registry.npmjs.org/
-# Pin exactly to 3.38.0 — later v3 releases require SERVERLESS_ACCESS_KEY
-# license activation, which breaks `npm i -g` in CI.
-RUN npm i -g serverless@3.38.0
+# Surface the actual npm error message — current CI failures only show the
+# "log file" hint without the cause.
+RUN npm i -g --foreground-scripts --loglevel=verbose serverless@3.38.0 \
+    || (echo "===== NPM DEBUG LOG =====" && cat /root/.npm/_logs/*.log; exit 1)
 ENTRYPOINT ["serverless"]
