@@ -1,8 +1,8 @@
-FROM nikolaik/python-nodejs:python3.11-nodejs20
+FROM nikolaik/python-nodejs:python3.12-nodejs20
 
 
-LABEL "com.github.actions.name"="Serverless Python3.11"
-LABEL "com.github.actions.description"="Wraps the Serverless Framework to enable common Serverless commands. Built for Python3.11 Lambda function runtime"
+LABEL "com.github.actions.name"="Serverless Python3.12"
+LABEL "com.github.actions.description"="Wraps the Serverless Framework to enable common Serverless commands. Built for Python3.12 Lambda function runtime"
 LABEL "com.github.actions.icon"="zap"
 LABEL "com.github.actions.color"="red"
 
